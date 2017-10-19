@@ -29,19 +29,45 @@
 	</dependencies>
 	<build>
 		<pluginManagement>
-			<!-- Do not dump the following configurations directly into reporting tag otherwise neither the excludes or ignores tag has any effect. -->
+			<!-- Do not dump the following configurations directly into reporting 
+				tag otherwise neither the excludes or ignores tag has any effect. -->
 			<plugins>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>cobertura-maven-plugin</artifactId>
 					<version>2.7</version>
 					<configuration>
-						<!-- Don't forget to run clean test-compile when the following configurations change. -->
+						<!-- Don't forget to run clean test-compile when the following configurations 
+							change. -->
 						<instrumentation>
 							<excludes>
 								<exclude>evolution/dao/**</exclude>
 							</excludes>
 						</instrumentation>
+						<check>
+							<haltOnFailure>true</haltOnFailure>
+							<!-- Global Branch Rate -->
+							<branchRate>0</branchRate>
+							<!-- Global Line Rate -->
+							<lineRate>0</lineRate>
+							<!-- Global Overall Branch Rate -->
+							<totalBranchRate>0</totalBranchRate>
+							<!-- Global Overall Line Rate -->
+							<totalLineRate>0</totalLineRate>
+							<!-- Global Package Line Rate -->
+							<packageLineRate>0</packageLineRate>
+							<!-- Global Package Branch Rate -->
+							<packageBranchRate>0</packageBranchRate>
+							<regexes>
+								<regex>
+									<pattern>evolution.**</pattern>
+									<!-- Local Branch Rate -->
+									<branchRate>0</branchRate>
+									<!-- Local Line Rate -->
+									<lineRate>0</lineRate>
+								</regex>
+							</regexes>
+						</check>
 					</configuration>
 				</plugin>
 			</plugins>
